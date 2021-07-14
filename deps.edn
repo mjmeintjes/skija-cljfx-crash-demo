@@ -1,0 +1,12 @@
+{:paths ["src" "resources"]
+ :mvn/repos
+ {"spacemaven" {:url "https://packages.jetbrains.team/maven/p/skija/maven"}}
+
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        vlaaad/reveal {:mvn/version "1.3.212"}
+        org.jetbrains.skija/skija-linux {:mvn/version "0.92.12"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "mattsum.skija-test"]}
+  :run-x {:ns-default mattsum.skija-test
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}}}
