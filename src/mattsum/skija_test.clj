@@ -4,8 +4,9 @@
     FontMgr FontStyle Font Typeface
     Canvas Paint Surface])
   (:require [clojure.java.io :as io]
-            [cljfx.platform :as platform]
-            #_[cljfx.api :as fx]))
+            #_[cljfx.platform :as platform]
+            #_[cljfx.api :as fx])
+  (:import [javafx.application Platform]))
 
 (defn color [^long l]
   (.intValue (Long/valueOf l)))
@@ -32,11 +33,7 @@
      (java.io.File. "/home/matthys/tmp/output.png"))))
 
 (comment
-  (let [font-face (.matchFamilyStyle (FontMgr/getDefault)
-                                     "Consolas" FontStyle/NORMAL)
-        font (Font. ^Typeface font-face)]
-    font)
-  (platform/initialize)
+  (Platform/startup #(Platform/setImplicitExit false))
   (create-image-with-text))
 
 (defn greet
