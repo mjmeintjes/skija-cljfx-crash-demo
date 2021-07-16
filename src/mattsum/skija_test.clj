@@ -39,7 +39,10 @@
 (defn greet
   "Callable entry point to the application."
   [data]
-  (println (str "Hello, " (or (:name data) "World") "!")))
+  (println "Testing")
+  (Platform/startup #(Platform/setImplicitExit false))
+  (create-image-with-text)
+  (println "Worked"))
 
 (defn -main
   "I don't do a whole lot ... yet."
